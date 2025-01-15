@@ -116,7 +116,7 @@ final class FlickrSearchTests: XCTestCase {
         viewModel.$state
             .dropFirst()
             .sink { state in
-                if case let .error(message) = state, message == URLError(.notConnectedToInternet).localizedDescription {
+                if case let .error(message) = state, message == URLError(.notConnectedToInternet).localizedDescription.capitalized {
                     expectation.fulfill()
                 }
             }
